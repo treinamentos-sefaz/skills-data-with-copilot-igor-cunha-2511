@@ -18,7 +18,10 @@ def descriptive_stats(df: pd.DataFrame) -> pd.Series:
 
 def detect_outliers_iqr(df: pd.DataFrame, column: str = "rating") -> pd.DataFrame:
     """Retorne as linhas consideradas outliers em ``column`` pelo método IQR
-    (valores abaixo de Q1 - 1.5*IQR ou acima de Q3 + 1.5*IQR)."""
+    (valores abaixo de Q1 - 1.5*IQR ou acima de Q3 + 1.5*IQR).
+
+    Premissa: outlier estatístico não é necessariamente erro de dado; ele
+    indica apenas valores distantes da maioria, que merecem análise."""
     q1 = df[column].quantile(0.25)
     q3 = df[column].quantile(0.75)
     iqr = q3 - q1
