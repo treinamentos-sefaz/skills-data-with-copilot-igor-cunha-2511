@@ -9,6 +9,8 @@ As tabelas disponíveis são:
 Dica: use o GitHub Copilot Chat (inline, Cmd/Ctrl+I) ou escreva um comentário
 descrevendo a query e deixe o Copilot sugerir o SQL. Sempre revise o resultado.
 
+.
+
 Valide com:  ``python lab/check.py --module sql``
 """
 from __future__ import annotations
