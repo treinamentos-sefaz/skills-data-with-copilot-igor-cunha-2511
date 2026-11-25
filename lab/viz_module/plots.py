@@ -45,8 +45,8 @@ def plot_top_varieties(df: pd.DataFrame, out_path: str):
 
 
 def plot_boxplot_by_variety(df: pd.DataFrame, out_path: str):
-    """Boxplot de ``rating`` para as 5 variedades mais frequentes. Salve a figura
-    em ``out_path``."""
+    """Boxplot de ``rating`` para as 5 variedades mais frequentes. Limitar a 5
+    variedades mantém o gráfico legível. Salve a figura em ``out_path``."""
     top5 = df["variety"].value_counts().head(5).index
     subconjunto = df[df["variety"].isin(top5)]
     fig, ax = plt.subplots(figsize=(10, 6))
