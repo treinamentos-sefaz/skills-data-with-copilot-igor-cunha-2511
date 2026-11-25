@@ -41,8 +41,8 @@ def add_rating_category(df: pd.DataFrame) -> pd.DataFrame:
     "Média" (85 a 90) e "Alta" (> 90). Dica: use ``pd.cut``."""
     out = df.copy()
     rating = out["rating"]
-    # pd.cut não aceita 85 e 90 no mesmo intervalo "Média" com fechamentos
-    # diferentes; np.select aplica as faixas exatamente como especificado.
+    # pd.cut não fecha o intervalo "Média" nos dois extremos (85 e 90 incluídos)
+    # e manter "Baixa" < 85 e "Alta" > 90 ao mesmo tempo; np.select resolve isso.
     out["rating_category"] = np.select(
         [rating < 85, rating <= 90, rating > 90],
         ["Baixa", "Média", "Alta"],
